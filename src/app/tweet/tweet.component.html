@@ -1,0 +1,49 @@
+<div class ="container">
+    <form [formGroup]="posttweetsform">
+      <div class= "card">
+      <div class="form-group col-lg-12 col-md-12 col-sm-12">
+        <label for="tweet"></label>
+        <textarea class="tweetDesc" name="tweet" formControlName='tweetDesc' placeholder="Enter your Tweet" rows="4"
+          cols="50"></textarea>
+      </div>
+      <div class="form-group d-flex justify-content-between align-items-center col-lg-12 col-md-12 col-sm-12">
+        <button class="btn btn-primary" type="submit" value="submit" (click)="posttweet(posttweetsform)">Post Tweet</button>
+      </div>
+    </div>
+    </form>
+    <div class="row mx-3">
+      <div class="col-lg-12 p-2 pb-5" *ngFor="let f of tweets;let i = index">
+        <div><div class="row">
+          
+          <img src="../../assets/avtar.png" alt="boy in a jacket" width="50" height="60">
+          <div class="bg-dark text-light">Posted By {{f.tweetBy}} <span class="pl-5">{{f.date}}</span></div></div>
+          <div> {{f.tweetDesc}} </div>
+        </div>
+        <div class="row">
+        <a href="javascript:void(0);" *ngIf="!likeArray[i]" (click)="like(i)" class="fs-blue"><i
+            class="fa fa-thumbs-up fs-blue">
+    
+          </i>Like
+        </a>
+        <a href="javascript:void(0);" *ngIf="likeArray[i]" (click)="unlike(i)"><i class="fa fa-thumbs-up">
+          </i>Like
+        </a>
+    
+        <a href="javascript:void(0);" (click)="reply[i]=true" class="pl-5">Reply
+      </a>
+    
+      </div>
+      <textarea *ngIf="reply[i]" id="replyDesc" name="replyDesc" [(ngModel)]='replyDesc' placeholder="Enter your Reply" rows="4"
+      cols="50"></textarea>
+      <button *ngIf="reply[i]" class="btn btn-primary" type="submit" value="submit" (click)="postcomment(f.tweetId,i)">Post Comments</button>
+        <div *ngFor="let comment of f.replyDTOList;">
+    
+          <div class="bg-dark text-light">Commented By {{comment.username}} <span class="pl-5">{{comment.date}}</span>
+          </div>
+          <div> {{comment.replyDesc}} </div>
+    
+        </div>
+      </div>
+    </div>
+    
+     

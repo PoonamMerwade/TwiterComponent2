@@ -1,0 +1,123 @@
+
+<div class="text-center"><h1>Enter Your Details to Register</h1></div>
+<div class="container p-5 bg-light">
+ 
+    <div class="alert alert-warning text-center" *ngIf="success">{{errMsg}}</div> 
+
+    <form name="form" (ngSubmit)="save()" #f="ngForm">
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="login"> Username</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="[a-zA-Z]{2}[A-Za-z\s]*" id="username" required  #username="ngModel" class="form-control" name="VendorMobile"
+                [(ngModel)]="user.username" placeholder="Enter username">
+                <div *ngIf="username.touched">
+                    <div *ngIf="username.errors && (username.invalid)">
+                      <small class="text-danger" *ngIf="username.errors.required">username is required</small>
+                      <small class="text-danger" *ngIf="username.errors.pattern">pls enter valid username</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="email"> Email Id</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" id="email"
+                    required #email="ngModel" class="form-control" name="EmailId" [(ngModel)]="user.email"
+                    placeholder="Enter  EmailId">
+                <div *ngIf="email.touched">
+                    <div *ngIf="email.errors && (email.invalid)">
+                        <small class="text-danger" *ngIf="email.errors.required">Email Id is required</small>
+                        <small class="text-danger" *ngIf="email.errors.pattern">Invalid email Id</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="vName"> first Name</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="[a-zA-Z]{2}[A-Za-z\s]*" id="fName" required #fn="ngModel"
+                    class="form-control" name="firstName" [(ngModel)]="user.firstName" placeholder="Enter firstname">
+                <div *ngIf="fn.touched">
+                    <div *ngIf="fn.errors && (fn.invalid)">
+                        <small class="text-danger" *ngIf="fn.errors.required">firstname is required</small>
+                        <small class="text-danger" *ngIf="fn.errors.pattern">Only alphabets allowed with minimum 2
+                            chars</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="vName">Last Name</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="[a-zA-Z]{2}[A-Za-z\s]*" id="lName" required #ln="ngModel"
+                    class="form-control" name="lastName" [(ngModel)]="user.lastName" placeholder="Enter Lastname">
+                <div *ngIf="ln.touched">
+                    <div *ngIf="ln.errors && (ln.invalid)">
+                        <small class="text-danger" *ngIf="ln.errors.required">lastName is required</small>
+                        <small class="text-danger" *ngIf="ln.errors.pattern">Only alphabets allowed with minimum 2
+                            chars</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="password"> pasword</label>
+            </div>
+            <div class="col-7">
+                <input type="password"  id="pasword" required #pasword="ngModel"
+                    class="form-control" name="password" [(ngModel)]="user.password" placeholder="Enter pasword">
+                <div *ngIf="pasword.touched">
+                    <div *ngIf="pasword.errors && (pasword.invalid)">
+                        <small class="text-danger" *ngIf="pasword.errors.required">pasword  is required</small>
+                        <small class="text-danger" *ngIf="pasword.errors.pattern">Password should have one number,special char,max length of 8 to 20</small> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="cpassword"> confirmPassword</label>
+            </div>
+            <div class="col-7">
+                <input type="password" id="confirmPassword" required #cp="ngModel"
+                    class="form-control" name="confirmPassword" [(ngModel)]="user.confirmPassword" placeholder="Reenter password">
+                <div *ngIf="cp.touched">
+                    <div *ngIf="cp.errors && (cp.invalid)">
+                        <small class="text-danger" *ngIf="cp.errors.required">confirmPassword  is required</small>
+                        <!-- <small class="text-danger" *ngIf="cp.errors.pattern">should match password</small> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="Mobile"> Mobile</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="[1-9]{1}[0-9]{9}" id="vMobile" required maxlength="10" #mobile="ngModel" class="form-control" name="Mobile"
+                [(ngModel)]="user.contactNumber" placeholder="Enter contactNumber">
+                <div *ngIf="mobile.touched">
+                    <div *ngIf="mobile.errors && (mobile.invalid)">
+                      <small class="text-danger" *ngIf="mobile.errors.required">Mobile number is required</small>
+                      <small class="text-danger" *ngIf="mobile.errors.pattern">Must not start with 0 and have exactly 10 digits</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button [disabled]="f.invalid" type="submit" name="submit" class="form-control"
+                class="btn btn-primary btn-md">Submit</button>
+        </div>
+    </form>
+
+</div> 

@@ -1,0 +1,15 @@
+<!-- <tbody>
+    <tr *ngFor="let c of users">
+        <td>{{c.firstName}} </td>
+        <td>{{c.lastName}}</td>
+    </tr>
+    
+</tbody> -->
+<h2>List of All Users</h2>
+<div class="col-lg-12 p-2 pb-5" *ngFor="let f of users">
+<div><div class="row">
+      
+    <img src="../../assets/avtar.png" alt="boy in a jacket" width="50" height="60">
+    <div class="bg-dark text-light">User {{f.email}} </div></div>
+  </div>
+</div>
