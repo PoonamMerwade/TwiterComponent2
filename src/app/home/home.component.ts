@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Tweet } from '../model/tweet';
-import { User } from '../model/user';
 import { UserServiceService } from '../service/user-service.service';
 
 @Component({

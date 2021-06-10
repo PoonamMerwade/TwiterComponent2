@@ -1,9 +1,9 @@
 
 <div class="row mx-3">
     <div class="col-lg-12 p-2 pb-5" *ngFor="let f of tweet">
-
+      <h1>{{f.username}}</h1>
     <div><div class="row">
-      <h1>Hi {{f.username}}</h1>
+
         <img src="../../assets/avtar.png" alt="boy in a jacket" width="50" height="60">
         <div class="bg-primary text-light">Posted on<span class="pl-5">{{f.date}}</span></div></div>
         <div> {{f.tweetDesc}} </div>

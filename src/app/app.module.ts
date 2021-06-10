@@ -17,7 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { LikeCompComponent } from './like-comp/like-comp.component';
+
 import { MyAccountComponent } from './my-account/my-account.component';
 
 
@@ -32,7 +32,6 @@ import { MyAccountComponent } from './my-account/my-account.component';
     LogoutComponent,
     SearchByLoginIdComponent,
     ForgotPasswordComponent,
-    LikeCompComponent,
     MyAccountComponent,
     
   ],

@@ -8,11 +8,11 @@ import { Tweet } from '../model/tweet';
 })
 export class TweetServiceService {
   likeComment(tweet:any) {
-    return this.httpClient.post("http://localhost:9090/tweets/like",tweet)
+    return this.httpClient.post("http://3.12.147.32:8081/tweets/like",tweet)
   }
   
-  baseUrl = "http://localhost:9090/tweets"
-  // baseUrl1 = "http://localhost:9090/tweets/allTweets"
+  baseUrl = "http://3.12.147.32:8081/tweets"
+  // baseUrl1 = "http://3.12.147.32:8081/tweets/allTweets"
 
   username=window.localStorage.getItem('username');
 
@@ -23,7 +23,7 @@ export class TweetServiceService {
 
   getAllTweets()
   {
-    return this.httpClient.get("http://localhost:9090/tweets/allTweets/?username="+localStorage.getItem('username'));
+    return this.httpClient.get("http://3.12.147.32:8081/tweets/allTweets/?username="+localStorage.getItem('username'));
   }
 
  getTweetByUsername(username:string): Observable<Tweet[]>{
@@ -39,7 +39,7 @@ updateTweet(tweet:Tweet): Observable<Tweet>{
 }
 
 postComment(user:any){
-  return this.httpClient.post("http://localhost:9090/tweets/replyTweet",user);
+  return this.httpClient.post("http://3.12.147.32:8081/tweets/replyTweet",user);
 }
 
 

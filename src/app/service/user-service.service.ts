@@ -9,10 +9,10 @@ import { User } from '../model/user';
 export class UserServiceService {
 
   
-  baseUrl = "http://localhost:9090/user";
+  baseUrl = "http://3.12.147.32:8081/user";
   username=window.localStorage.getItem('username')
-  baseUrl1="http://localhost:9090/user/update"
-  baseUrl2="http://localhost:9090/tweets"
+  baseUrl1="http://3.12.147.32:8081/user/update"
+  baseUrl2="http://3.12.147.32:8081/tweets"
   constructor(private httpClient: HttpClient) { }
   
   public flag = new Subject<any>();
@@ -47,12 +47,12 @@ export class UserServiceService {
     
     getAllTweets()
   {
-    return this.httpClient.get("http://localhost:9090/user/allTweets/?username="+localStorage.getItem('username'));
+    return this.httpClient.get("http://3.12.147.32:8081/user/allTweets/?username="+localStorage.getItem('username'));
   }
 
   deleteTweet(index:any)
   {
-    return this.httpClient.delete("http://localhost:9090/tweets/delete/?tweetId="+index);
+    return this.httpClient.delete("http://3.12.147.32:8081/tweets/delete/?tweetId="+index);
   }
   
   
